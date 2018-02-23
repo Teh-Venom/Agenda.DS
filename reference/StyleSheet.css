@@ -1,0 +1,80 @@
+﻿body {
+}
+#home{
+
+}
+
+.tudo{
+    width:100%;
+    max-width: 940px;
+    margin: 0 auto;
+    background-color: pink;
+}
+header, footer{
+    /*1em - 16px*/
+    height: 5em;
+    background: #252525;
+
+}
+.tudo, header, nav{
+    border: 2px solid #000;
+
+}
+
+.slideShow{
+    height: 5em;
+    background: #00ff21;
+}
+
+nav, #busca{
+    height:2em;
+    background:#ff0000;
+}
+
+.logoheader{
+    width: 25%;
+    max-width: 15em;
+    min-width: 35%;
+    margin: 0 auto;
+    padding-top: 1em;
+}
+
+img {
+    width:100%;
+}
+
+
+
+ul {
+    width:100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li.botaoSemLinha {
+    width: 20%;
+    height:2em;
+    max-width: 200px;
+    background: #252525;
+    float: left;
+    display: inline-block;
+}
+
+li.botaoLinha {
+    width: 20%;
+    height:2em;
+    max-width: 188px;
+    background: #252525;
+    float: left;
+    display: inline-block;
+}
+
+a.botaoNav {
+	color: white;
+	vertical-align: center;
+	text-align: center;
+	
+}
+
+
