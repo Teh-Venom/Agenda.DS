@@ -30,8 +30,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `mydb`.`Entidade` (
   `idEntidade` INT NOT NULL AUTO_INCREMENT ,
-  `IdListaGrupo` INT NOT NULL ,
-  `IdListaSufixo` INT NOT NULL ,
+  `IdListaGrupo_Entidade` INT NOT NULL ,
+  `IdListaSufixo_Entidade` INT NOT NULL ,
   `primeiroNome` VARCHAR(50) NOT NULL ,
   `sobreNome` VARCHAR(50) NULL ,
   `ultimoNome` VARCHAR(50) NULL ,
@@ -39,15 +39,15 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Entidade` (
   `website` VARCHAR(200) NULL ,
   `flagEntidadeJuridica` BIT NOT NULL ,
   PRIMARY KEY (`idEntidade`) ,
-  INDEX `IdListaSufixo_idx` (`IdListaSufixo` ASC) ,
-  INDEX `IdListaGrupo_idx` (`IdListaGrupo` ASC) ,
+  INDEX `IdListaSufixo_idx` (`IdListaSufixo_Entidade` ASC) ,
+  INDEX `IdListaGrupo_idx` (`IdListaGrupo_Entidade` ASC) ,
   CONSTRAINT `IdListaSufixo`
-    FOREIGN KEY (`IdListaSufixo` )
+    FOREIGN KEY (`IdListaSufixo_Entidade` )
     REFERENCES `mydb`.`ListaSufixo` (`idListaSufixo` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `IdListaGrupo`
-    FOREIGN KEY (`IdListaGrupo` )
+    FOREIGN KEY (`IdListaGrupo_Entidade` )
     REFERENCES `mydb`.`ListaGrupo` (`idListaGrupo` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -86,22 +86,22 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `mydb`.`Endereco` (
   `idEndereco` INT NOT NULL AUTO_INCREMENT ,
-  `idEntidade` INT NOT NULL ,
-  `idCidade` INT NOT NULL ,
+  `idEntidade_Endereco` INT NOT NULL ,
+  `idCidade_Endereco` INT NOT NULL ,
   `rua` VARCHAR(200) NOT NULL ,
   `numero` INT NOT NULL ,
   `complemento` VARCHAR(15) NOT NULL ,
   `bairro` VARCHAR(15) NOT NULL ,
   PRIMARY KEY (`idEndereco`) ,
-  INDEX `idEntidade_idx` (`idEntidade` ASC) ,
-  INDEX `idCidade_idx` (`idCidade` ASC) ,
+  INDEX `idEntidade_idx` (`idEntidade_Endereco` ASC) ,
+  INDEX `idCidade_idx` (`idCidade_Endereco` ASC) ,
   CONSTRAINT `idEntidade`
-    FOREIGN KEY (`idEntidade` )
+    FOREIGN KEY (`idEntidade_Endereco` )
     REFERENCES `mydb`.`Entidade` (`idEntidade` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idCidade`
-    FOREIGN KEY (`idCidade` )
+    FOREIGN KEY (`idCidade_Endereco` )
     REFERENCES `mydb`.`Cidade` (`idCidade` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -123,20 +123,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `mydb`.`Telefone` (
   `idTelefone` INT NOT NULL AUTO_INCREMENT ,
-  `idEntidade` INT NOT NULL ,
-  `idListaTipoTelefone` INT NOT NULL ,
+  `idEntidade_Telefone` INT NOT NULL ,
+  `idListaTipoTelefone_Telefone` INT NOT NULL ,
   `numero` VARCHAR(10) NOT NULL ,
   `ddd` VARCHAR(3) NOT NULL ,
   PRIMARY KEY (`idTelefone`) ,
-  INDEX `idEntidade_idx` (`idEntidade` ASC) ,
-  INDEX `idListaTipoTelefone_idx` (`idListaTipoTelefone` ASC) ,
-  CONSTRAINT `idEntidade`
-    FOREIGN KEY (`idEntidade` )
+  INDEX `idEntidade_idx` (`idEntidade_Telefone` ASC) ,
+  INDEX `idListaTipoTelefone_idx` (`idListaTipoTelefone_Telefone` ASC) ,
+  CONSTRAINT `idEntidade_Telefone`
+    FOREIGN KEY (`idEntidade_Telefone` )
     REFERENCES `mydb`.`Entidade` (`idEntidade` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `idListaTipoTelefone`
-    FOREIGN KEY (`idListaTipoTelefone` )
+  CONSTRAINT `idListaTipoTelefone_Telefone`
+    FOREIGN KEY (`idListaTipoTelefone_Telefone` )
     REFERENCES `mydb`.`ListaTipoTelefone` (`idListaTipoTelefone` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -148,12 +148,12 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `mydb`.`Email` (
   `idEmail` INT NOT NULL ,
-  `idEntidade` INT NOT NULL ,
+  `idEntidade_Email` INT NOT NULL ,
   `endereco` VARCHAR(200) NOT NULL ,
   PRIMARY KEY (`idEmail`) ,
-  INDEX `idEntidade_idx` (`idEntidade` ASC) ,
-  CONSTRAINT `idEntidade`
-    FOREIGN KEY (`idEntidade` )
+  INDEX `idEntidade_idx` (`idEntidade_Email` ASC) ,
+  CONSTRAINT `idEntidade_Email`
+    FOREIGN KEY (`idEntidade_Email` )
     REFERENCES `mydb`.`Entidade` (`idEntidade` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
