@@ -2,7 +2,7 @@
 <html lang="pt-br">
 	<head>
 		<title>Minha Agenda</title>
-		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<style>
 			div{
 				max-width: 250px;
@@ -58,12 +58,50 @@
 					
 					
 					<p>
-						Operadora:<br>
-						<select name="operadora">
-							<option>TESTE</option>
-							<option>TESTE</option>
-							<option>TESTE</option>
+						Estado:<br>
+						<select name="estado">
+							<option value="-"></option>
+							<?php
+								include "callEstados.php";
+							?>							
 						</select>
+						
+					</p>
+					<hr>
+					
+					<p>
+						<?php
+							if(isset($_POST["enviarEstado"])){
+								$estadoEscolhido = $_POST['estado'];
+								echo 'Cidades:<br>';
+								echo '<select name="cidade">';
+								echo '<option value="-"></option>';
+								
+														
+								include "conexao.php";
+								$sql = "SELECT * FROM cidade WHERE idEstado = ? ORDER BY nome";
+								$contatos = $conex -> prepare($sql);
+								$contatos -> execute(array($estadoEscolhido));
+								$contatos -> execute();
+								
+								foreach($contatos as $bolacha)
+								{
+										$id = $bolacha['idCidade'];
+										$nome = $bolacha['nome'];
+										echo "<option value='$id' charset='UTF-8'>$nome - $estadoEscolhido</option>";
+								}
+							
+								
+								
+								echo '</select>';
+							} else {
+								echo '
+								<p>
+									<input type="submit" value="enviarEstado" name="enviarEstado">
+								</p>';
+							}
+						?>
+											
 					</p>
 					
 					<hr>
@@ -78,66 +116,3 @@
 		</center>
 	</body>
 </html>
-
-<?php
-								include "conexao.php";
-								$sql = "SELECT * FROM agenda_tb ORDER BY nome";
-								$contatos = $conex -> prepare($sql);
-								$contatos -> execute();
-								foreach($contatos as $bolacha)
-								{
-										$id = $bolacha['idAgenda'];
-										$nome = $bolacha['nome'];
-										$grupo = $bolacha['grupo'];
-										$sexo = $bolacha['sexo'];
-										$nascimento = $bolacha['dataNascimento'];
-										$celular = $bolacha['celular'];
-										
-										$operadora = $bolacha['operadora'];
-										$fixo = $bolacha['fixo'];
-										$endereco = $bolacha['endereco'];
-										$email = $bolacha['email'];
-										$obs = $bolacha['obs'];
-																	
-										
-										if($nascimento == "0000-00-00")
-										{
-												$nascimento = "-";
-										} else
-										{
-											$data_nascimento =  date("d/m/Y",strtotime($bolacha['dataNascimento']));
-										}
-										
-										
-										echo "<tr>";
-										echo "<th>".$nome."</th>";
-										
-										echo "<th>".$grupo."</th>";
-										
-										echo "<th align='center'>".$sexo."</th>";
-										
-										echo "<th align='center'>".$data_nascimento."</th>";
-										
-										echo "<th>".$celular."</th>";
-										
-										echo "<th>".$operadora."</th>";
-										echo "<th>".$fixo."</th>";
-										echo "<th>".$endereco."</th>";
-										echo "<th>".$email."</th>";
-										echo "<th>".$obs."</th>";
-
-										echo "<th>
-												<a href='excluir.php?idExclusao=$id&nomeExclusao=$nome'>
-													<img src='imagens/Lixo01.png' width='20px'>
-												</a>
-											  </th>";
-											  
-										echo "<th>
-												<a href='editar.php?idEdicao=$id'>
-													<img src='imagens/Editar01.png' width='20px'>
-												</a>
-											  </th>";
-										
-										echo "</tr>";
-								}
-							?>
