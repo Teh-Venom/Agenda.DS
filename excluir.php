@@ -3,6 +3,7 @@
 	<head>
 		<title>Minha Agenda</title>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
 			$id = $_GET['idExclusao'];
 			$nome = $_GET['nomeExclusao'];

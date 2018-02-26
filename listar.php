@@ -3,19 +3,14 @@
 	<head>
 		<title>Minha Agenda</title>
 		<meta charset="UTF-8">
-		<style>
-			th{
-				padding-left: 3px;
-				padding-right: 4px;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 	</head>
 	<body>
-		<div>
+		<header>
 			<hr>
 			<h2><center>Projeto Agenda - Listar - Gabriel Braz</center></h2>
 			<hr>
-		</div>
+		</header>
 		<div>
 				<form action="" method="POST">
 					<center>

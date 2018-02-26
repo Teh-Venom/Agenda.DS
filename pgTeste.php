@@ -3,18 +3,7 @@
 	<head>
 		<title>Minha Agenda</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<style>
-			div{
-				max-width: 250px;
-				width: 100%;
-			}
-			input.botaoTop{
-				margin-top:15px;
-			}
-			form{
-				margin-top: 15px;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
 				if(isset($_POST["salvar"]))
 				{

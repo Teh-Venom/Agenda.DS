@@ -3,18 +3,7 @@
 	<head>
 		<title>Minha Agenda</title>
 		<meta charset="UTF-8">
-		<style>
-			div{
-				max-width: 250px;
-				width: 100%;
-			}
-			input.botaoTop{
-				margin-top:15px;
-			}
-			form{
-				margin-top: 15px;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
 				if(isset($_POST["salvar"]))
 				{
@@ -48,8 +37,8 @@
 		
 		<center>
 		<div>
-			<a href="listar.php">
-				<input class="botaoTop" type="button" value="Listar Contatos" name="index" align="center">
+			<a href="index.html">
+				<input class="botaoTop" type="button" value="Menu Principal" name="index" align="center">
 			</a>
 			
 			<form action="" method="POST">
