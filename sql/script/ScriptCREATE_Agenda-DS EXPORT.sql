@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26-Fev-2018 às 01:44
+-- Generation Time: 26-Fev-2018 às 06:34
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -5620,6 +5620,18 @@ CREATE TABLE `email` (
   `endereco` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `email`
+--
+
+INSERT INTO `email` (`idEmail`, `idEntidade_Email`, `endereco`) VALUES
+(1, 6, 'teste'),
+(2, 6, 'teste'),
+(3, 6, 'asdasda'),
+(4, 6, 'asdasda'),
+(5, 6, 'teeteteteststststes'),
+(6, 6, '2222222');
+
 -- --------------------------------------------------------
 
 --
@@ -5629,12 +5641,19 @@ CREATE TABLE `email` (
 CREATE TABLE `endereco` (
   `idEndereco` int(11) NOT NULL,
   `idEntidade_Endereco` int(11) NOT NULL,
-  `idCidade_Endereco` int(11) NOT NULL,
+  `idCidade_Endereco` int(11) DEFAULT NULL,
   `rua` varchar(200) NOT NULL,
   `numero` int(11) NOT NULL,
-  `complemento` varchar(15) NOT NULL,
-  `bairro` varchar(15) NOT NULL
+  `complemento` varchar(15) DEFAULT NULL,
+  `bairro` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `endereco`
+--
+
+INSERT INTO `endereco` (`idEndereco`, `idEntidade_Endereco`, `idCidade_Endereco`, `rua`, `numero`, `complemento`, `bairro`) VALUES
+(1, 6, 79, 'ruaeaueiauriau', 666, 'asdad', 'asdasd');
 
 -- --------------------------------------------------------
 
@@ -5644,14 +5663,24 @@ CREATE TABLE `endereco` (
 
 CREATE TABLE `entidade` (
   `idEntidade` int(11) NOT NULL,
-  `IdListaGrupo_Entidade` int(11) NOT NULL,
+  `IdListaGrupo_Entidade` int(11) DEFAULT NULL,
   `primeiroNome` varchar(50) NOT NULL,
   `sobreNome` varchar(50) DEFAULT NULL,
   `ultimoNome` varchar(50) DEFAULT NULL,
+  `sexo` char(1) DEFAULT NULL,
+  `dataNascimento` date DEFAULT NULL,
   `apelido` varchar(50) DEFAULT NULL,
   `website` varchar(200) DEFAULT NULL,
-  `flagEntidadeJuridica` bit(1) NOT NULL
+  `Obs` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `entidade`
+--
+
+INSERT INTO `entidade` (`idEntidade`, `IdListaGrupo_Entidade`, `primeiroNome`, `sobreNome`, `ultimoNome`, `sexo`, `dataNascimento`, `apelido`, `website`, `Obs`) VALUES
+(5, 1, 'nois', '', '', '', '0000-00-00', '', 'm', ''),
+(6, 1, 'nois', '', '', '', '0000-00-00', '', 'm', '');
 
 -- --------------------------------------------------------
 
@@ -5709,6 +5738,15 @@ CREATE TABLE `listagrupo` (
   `nome` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `listagrupo`
+--
+
+INSERT INTO `listagrupo` (`idListaGrupo`, `nome`) VALUES
+(1, 'Amigos'),
+(2, 'Familia'),
+(3, 'Trabalho');
+
 -- --------------------------------------------------------
 
 --
@@ -5741,10 +5779,18 @@ INSERT INTO `listatipotelefone` (`idListaTipoTelefone`, `nome`) VALUES
 CREATE TABLE `telefone` (
   `idTelefone` int(11) NOT NULL,
   `idEntidade_Telefone` int(11) NOT NULL,
-  `idListaTipoTelefone_Telefone` int(11) NOT NULL,
+  `idListaTipoTelefone_Telefone` int(11) DEFAULT NULL,
   `numero` varchar(10) NOT NULL,
   `ddd` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `telefone`
+--
+
+INSERT INTO `telefone` (`idTelefone`, `idEntidade_Telefone`, `idListaTipoTelefone_Telefone`, `numero`, `ddd`) VALUES
+(1, 6, NULL, '666666666', '41'),
+(2, 6, 1, '666666', '33');
 
 --
 -- Indexes for dumped tables
@@ -5816,16 +5862,22 @@ ALTER TABLE `cidade`
   MODIFY `idCidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5565;
 
 --
+-- AUTO_INCREMENT for table `email`
+--
+ALTER TABLE `email`
+  MODIFY `idEmail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `entidade`
 --
 ALTER TABLE `entidade`
-  MODIFY `idEntidade` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEntidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `estado`
@@ -5837,7 +5889,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT for table `listagrupo`
 --
 ALTER TABLE `listagrupo`
-  MODIFY `idListaGrupo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idListaGrupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `listatipotelefone`
@@ -5849,7 +5901,7 @@ ALTER TABLE `listatipotelefone`
 -- AUTO_INCREMENT for table `telefone`
 --
 ALTER TABLE `telefone`
-  MODIFY `idTelefone` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTelefone` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
