@@ -8,7 +8,7 @@
 	{
 			$idEstado = $bolacha['idEstado'];
 			$nomeEstado = $bolacha['nome'];
-			echo "<option value='$idEstado'>$nomeEstado - $idEstado</option>";
+			echo "<option value='$idEstado'>$nomeEstado</option>";
 	}
 	$contatos = NULL;
 ?>

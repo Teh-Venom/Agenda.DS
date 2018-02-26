@@ -6,25 +6,28 @@
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
 				if(isset($_POST["salvar"]))
-				{
+				{	
+					
 					$id = "";
-					$nome = $_POST["nome"];
-					$celular = $_POST["celular"];
-					$grupo = $_POST["grupo"];
-					$operadora = $_POST["operadora"];
-					$email = $_POST["email"];
-					$fixo = $_POST["fixo"];
+					$id_grupo = $_POST["idGrupo"];
+					$primeiro_nome = $_POST["primeiroNome"];
+					$sobre_nome = $_POST["sobreNome"];
+					$ultimo_nome = $_POST["ultimoNome"];
+					$apelido = $_POST["apelido"];
+					$website = $_POST["website"];
 					$data_nascimento = $_POST["data_nascimento"];
 					$sexo = $_POST["sexo"];
-					$endereco = $_POST["endereco"];
 					$obs = $_POST["obs"];
 					
 					
 					include "conexao.php";
-					$sql = "INSERT INTO agenda_tb VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+					$sql = "INSERT INTO entidade VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 					$contatos = $conex -> prepare($sql);
-					$contatos -> execute(array($id, $nome, $celular, $grupo, $operadora, $email, $fixo, $data_nascimento, $sexo, $endereco, $obs));
+					$contatos -> execute(array($id, $id_grupo,$primeiro_nome, $sobre_nome, $ultimo_nome, $apelido, $website, $data_nascimento, $sexo, $obs));
 					$contatos = NULL;
+					
+					header("location:cadastro2.php");
+					
 				}
 		?>
 	</head>
@@ -44,47 +47,54 @@
 			<form action="" method="POST">
 				<fieldset>
 					<legend>
-						Dados do Cadastro:
+						Dados do Cadastro:<br>
+						Campos com * são obrigatórios!
 					</legend>
 					
 					<p>
-						Nome:<br>
-						<input type="text" name="nome" autofocus>
+						Primeiro Nome: *<br>
+						<input type="text" name="primeiroNome" maxlength="50" autofocus required>
 					</p>
 					
 					<hr>
 					
 					<p>
-						Celular:<br>
-						<input type="text" name="celular">
+						Sobre Nome:<br>
+						<input type="text" name="sobreNome" maxlength="50">
+					</p>
+					
+					<hr>
+					
+					<p>
+						Ultimo Nome:<br>
+						<input type="text" name="ultimoNome" maxlength="50">
 					</p>
 					
 					<hr>
 					
 					<p>
 						Grupo:<br>
-						<input type="text" name="grupo">
+						<select name="idGrupo">
+							<option value="0"></option>
+							<?php
+								include "callGrupos.php";
+							?>							
+						</select>
+						
 					</p>
 					
 					<hr>
 					
 					<p>
-						Operadora:<br>
-						<input type="text" name="operadora">
+						Apelido:<br>
+						<input type="text" name="apelido" maxlength="50">
 					</p>
 					
 					<hr>
 					
 					<p>
-						E-mail:<br>
-						<input type="text" name="email">
-					</p>
-					
-					<hr>
-					
-					<p>
-						Fixo:<br>
-						<input type="text" name="fixo">
+						Website:<br>
+						<input type="text" name="website" maxlength="200">
 					</p>
 					
 					<hr>
@@ -98,22 +108,15 @@
 					
 					<p>
 						Sexo:<br>
-						<input type="radio" value="m" name="sexo">M
+						<input type="radio" value="m" name="sexo" checked="checked" >M
 						<input type="radio" value="f" name="sexo">F
 					</p>
-					
-					<hr>
-					
-					<p>
-						Endereço:<br>
-						<input type="text" name="endereco">
-					</p>
-					
+										
 					<hr>
 					
 					<p>
 						Obs:<br>
-						<input type="text" name="obs">
+						<input type="text" name="obs" maxlength="200">
 					</p>
 					
 					<hr>

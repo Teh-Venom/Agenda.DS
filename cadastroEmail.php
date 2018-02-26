@@ -2,10 +2,12 @@
 <html lang="pt-br">
 	<head>
 		<title>Minha Agenda</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
-
+			
+			@$id_entidade = $_POST["id_entidade"];
+			@$nome_entidade = $_POST["nome_entidade"];
 		?>
 	</head>
 	<body>
@@ -17,33 +19,19 @@
 		
 		<center>
 		<div>
-
 			<form action="" method="POST">
+				<input type="hidden" name="id_entidade"     value="<?php echo $id_entidade;?>">
+				<input type="hidden" name="nome_entidade"    value="<?php echo $nome_entidade;?>">
+				
 				<fieldset>
 					<legend>
-						Dados do Cadastro:
+						Dados do Cadastro:<br>
+						Campos com * são obrigatórios!
 					</legend>
 					
-					
-					
 					<p>
-						Estado:<br>
-						<select name="estado">
-							<option value="-"></option>
-							<?php
-
-								include "callEstados.php";
-							?>							
-						</select>
-						
-					</p>
-					<hr>
-					
-					<p>
-						<?php
-							include "callCidades.php";
-						?>
-											
+						Endereço de Email: *<br>
+						<input type="email" name="email" maxlength="200" autofocus required>
 					</p>
 					
 					<hr>
@@ -51,6 +39,10 @@
 					<p>
 						<input type="submit" value="salvar" name="salvar">
 					</p>
+					
+					<?php
+						include "setEmail.php";
+					?>
 				</fieldset>
 			
 			<form>
