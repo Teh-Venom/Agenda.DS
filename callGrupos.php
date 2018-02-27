@@ -6,7 +6,7 @@
 	
 	foreach($contatos as $bolacha)
 	{
-			$idEstado = $bolacha['idListaGrupo'];
+			$idListaGrupo = $bolacha['idListaGrupo'];
 			$nomeGrupo = $bolacha['nome'];
 			echo "<option value='$idListaGrupo'>$nomeGrupo</option>";
 	}

@@ -75,7 +75,7 @@
 					<p>
 						Grupo:<br>
 						<select name="idGrupo">
-							<option value="2"></option>
+							<option value="NULL"></option>
 							<?php
 								include "callGrupos.php";
 							?>							
