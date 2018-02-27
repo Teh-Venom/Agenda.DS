@@ -19,6 +19,10 @@
 					$sexo = $_POST["sexo"];
 					$obs = $_POST["obs"];
 					
+					if ($id_grupo == ""){
+						$id_grupo = NULL;
+					}
+					
 					
 					include "conexao.php";
 					$sql = "INSERT INTO entidade VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -75,7 +79,7 @@
 					<p>
 						Grupo:<br>
 						<select name="idGrupo">
-							<option value="NULL"></option>
+							<option value=""></option>
 							<?php
 								include "callGrupos.php";
 							?>							

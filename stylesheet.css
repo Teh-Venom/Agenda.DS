@@ -5,6 +5,12 @@ div{
 	margin: 0 auto;
 	width: 50%;
 }
+div.listagrupo{
+	margin-left: 23%;
+}
+div.listagrupoExp{
+	margin-left: 20%;
+}
 input.botaoTop{
 	margin-top:15px;
 }
@@ -14,4 +20,5 @@ form{
 th{
 	padding-left: 3px;
 	padding-right: 4px;
+	white-space: nowrap;
 }
