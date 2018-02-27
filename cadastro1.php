@@ -23,7 +23,7 @@
 					include "conexao.php";
 					$sql = "INSERT INTO entidade VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 					$contatos = $conex -> prepare($sql);
-					$contatos -> execute(array($id, $id_grupo,$primeiro_nome, $sobre_nome, $ultimo_nome, $apelido, $website, $data_nascimento, $sexo, $obs));
+					$contatos -> execute(array($id, $id_grupo,$primeiro_nome, $sobre_nome, $ultimo_nome, $sexo, $data_nascimento, $apelido, $website,  $obs));
 					$contatos = NULL;
 					
 					header("location:cadastro2.php");
@@ -75,7 +75,7 @@
 					<p>
 						Grupo:<br>
 						<select name="idGrupo">
-							<option value="0"></option>
+							<option value="2"></option>
 							<?php
 								include "callGrupos.php";
 							?>							
