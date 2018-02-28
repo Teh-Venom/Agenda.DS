@@ -46,7 +46,7 @@
 											entidade.dataNascimento, telefone.numero, 
 											endereco.rua, email.endereco, entidade.Obs 
 										FROM entidade 
-										INNER JOIN listagrupo ON listagrupo.idListaGrupo = entidade.IdListaGrupo_Entidade 
+										LEFT JOIN listagrupo ON listagrupo.idListaGrupo = entidade.IdListaGrupo_Entidade 
 										LEFT JOIN telefone ON telefone.idEntidade_Telefone = entidade.idEntidade 
 										LEFT JOIN endereco ON endereco.idEntidade_Endereco = entidade.idEntidade 
 										LEFT JOIN email ON email.idEntidade_Email = entidade.idEntidade

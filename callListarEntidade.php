@@ -2,7 +2,7 @@
 	include "conexao.php";
 
 	$sql = "SELECT listagrupo.nome as nomeGrupo, primeiroNome, sobreNome, ultimoNome, sexo, dataNascimento, apelido, website, Obs FROM entidade 
-		INNER JOIN listagrupo ON listagrupo.idListaGrupo = entidade.IdListaGrupo_Entidade
+		LEFT JOIN listagrupo ON listagrupo.idListaGrupo = entidade.IdListaGrupo_Entidade
 		WHERE idEntidade = ?";
 	$contatos = $conex -> prepare($sql);
 	$contatos -> execute(array($id_entidade));
