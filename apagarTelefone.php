@@ -5,17 +5,18 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
+		
 			$id_entidade_exclusao = $_GET['idEntidade'];
 			$nome_entidade_exclusao = $_GET['nomeEntidade'];
-			$id_email_exclusao = $_GET['idEmail'];
+			$id_telefone_exclusao = $_GET['idTelefone'];
 			if(isset($_POST['sim']))
 			{
 				include "conexao.php";
-				$sql = "DELETE FROM email WHERE idEmail = $id_email_exclusao";
+				$sql = "DELETE FROM telefone WHERE idTelefone = $id_telefone_exclusao";
 				$contatos = $conex -> prepare($sql);
 				$contatos -> execute();
 				$contatos= NULL;
-				header("Location: listarExpandir.php?idExpansao=$id_entidade_exclusao&nomeExpansao=$nome_entidade_exclusao");
+				header("Location: listarExpandir.php?idExpansao=$id_entidade_exclusao&nomeExpansao=$nome_entidade_exclusao'");
 			}
 		?>
 	</head>
@@ -26,7 +27,7 @@
 			<hr>
 		</header>
 		<div>
-			<h2 align="center">Deseja apagar o email escolhido?</h2>
+			<h2 align="center">Deseja apagar o Endereco escolhido?</h2>
 				<span align="center">
 					<form action="" method="POST">
 						<input type="submit" name="sim" value="Sim">
