@@ -23,7 +23,7 @@
 				</a>
 			</center>		
 		</nav>
-			<div class="listagrupoExp">
+			
 				<fieldset>
 					<legend>
 						Dados de '<?php echo $nome_entidade; ?>':
@@ -38,6 +38,8 @@
 						<th>Apelido</th>
 						<th>Website</th>
 						<th>Obs</th>
+						<th colspan="2">Opções</th>
+						
 						
 						<?php
 							include "callListarEntidade.php"
@@ -45,7 +47,7 @@
 					
 					</table>
 				</fieldset>
-				
+			
 				<fieldset>
 					<legend>
 						Telefones de '<?php echo $nome_entidade; ?>':
@@ -69,7 +71,7 @@
 					
 					</table>
 				</fieldset>
-				
+			
 				<fieldset>
 					<legend>
 						E-mails de '<?php echo $nome_entidade; ?>':
@@ -80,7 +82,7 @@
 						<th>Endereço</th>
 						<th colspan="2">Opções</th>
 						<th>
-							<a href='addTelefone.php?idEntidade=$id_entidade'>
+							<a href='addEmail.php?idEntidade=$id_entidade'>
 								<img src='imagens/Add01.png' width='20px'>
 							</a>
 						</th>
@@ -89,22 +91,29 @@
 						?>
 					</table>
 				</fieldset>
-				
+			
 				<fieldset>
 					<legend>
 						Endereços de '<?php echo $nome_entidade; ?>':
 					</legend>
 					
 					<table border="1" style ="margin : 0 auto">
-						<th>Primeiro Nome</th>
-						<th>Sobre Nome</th>
-						<th>Sexo</th>	
-						<th>Data de Nascimento</th>
-						<th>Apelido</th>
-						<th>Website</th>
-						<th>Obs</th>
+						<th>ID</th>
+						<th>Cidade</th>
+						<th>Rua</th>	
+						<th>Numero</th>
+						<th>Complemento</th>
+						<th>Bairro</th>
+						<th colspan="2">Opções</th>
+						<th>
+							<a href='addEndereco.php?idEntidade=$id_entidade'>
+								<img src='imagens/Add01.png' width='20px'>
+							</a>
+						</th>
 						
-						
+						<?php
+							include "callListarEndereco.php";
+						?>
 					
 					</table>
 				</fieldset>

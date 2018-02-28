@@ -103,6 +103,7 @@
 										
 										echo "</tr>";
 								}
+								$contatos= NULL;
 							?>
 						
 						</table>

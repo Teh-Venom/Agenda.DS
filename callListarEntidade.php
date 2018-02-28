@@ -44,6 +44,16 @@
 			
 			echo "<th>".$website."</th>";
 			echo "<th>".$Obs."</th>";	
+			echo "<th>
+					<a href='listarExpandir.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade'>
+						<img src='imagens/Expandir01.png' width='20px'>
+					</a>
+				  </th>";
+			echo "<th>
+					<a href='excluir.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade'>
+						<img src='imagens/Lixo01.png' width='20px'>
+					</a>
+				  </th>";
 			echo "</tr>";									
 	}
 	$contatos = NULL;

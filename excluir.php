@@ -13,6 +13,7 @@
 				$sql = "DELETE FROM agenda_tb WHERE idAgenda = $id";
 				$contatos = $conex -> prepare($sql);
 				$contatos -> execute();
+				$contatos: NULL;
 				header("Location: listar.php");
 			}
 		?>
