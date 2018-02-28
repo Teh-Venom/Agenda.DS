@@ -6,8 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
 			
-			@$id_entidade = $_POST["id_entidade"];
-			@$nome_entidade = $_POST["nome_entidade"];
+			$id_entidade = $_GET["idEntidade"];
+			$nome_entidade = $_GET["nomeEntidade"];
 		?>
 	</head>
 	<body>
@@ -30,30 +30,9 @@
 					</legend>
 					
 					<p>
-						Número: *<br>
-						<input type="number_format" name="numero" maxlength="10" autofocus required>
+						Endereço de Email: *<br>
+						<input type="email" name="email" maxlength="200" autofocus required>
 					</p>
-					
-					<hr>
-					
-					<p>
-						DDD: *<br>
-						<input type="number_format" name="ddd" maxlength="3">
-					</p>
-					
-					<hr>
-					
-					
-					<p>
-						Tipo:<br>
-						<select name="tipoTelefone">
-							<option value="0"></option>
-							<?php
-								include "callTipoTelefone.php";
-							?>							
-						</select>
-						
-					</p>				
 					
 					<hr>
 					
@@ -62,9 +41,9 @@
 					</p>
 					
 					<?php
-						include "setTelefone.php";
+						include "setEmail.php";
 						if (isset($_POST["salvar"]))
-						header("location:cadastro2.php");
+						header("location:listarExpandir.php?idExpansao=$id_entidade&nomeExpansao=$nome_entidade");
 					?>
 				</fieldset>
 			

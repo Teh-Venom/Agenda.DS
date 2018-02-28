@@ -57,10 +57,10 @@
 						<th>ID</th>
 						<th>DDD</th>
 						<th>Numero</th>	
-						<th>Operadora</th>
+						<th>Tipo</th>
 						<th colspan="2">Opções</th>
 						<th>
-							<a href='addTelefone.php?idEntidade=$id_entidade'>
+							<a href='addTelefone.php<?php echo "?idEntidade=$id_entidade&nomeEntidade=$nome_entidade'"?>>
 								<img src='imagens/Add01.png' width='20px'>
 							</a>
 						</th>
@@ -82,7 +82,7 @@
 						<th>Endereço</th>
 						<th colspan="2">Opções</th>
 						<th>
-							<a href='addEmail.php?idEntidade=$id_entidade'>
+							<a href='addEmail.php<?php echo "?idEntidade=$id_entidade&nomeEntidade=$nome_entidade'"?>>
 								<img src='imagens/Add01.png' width='20px'>
 							</a>
 						</th>
@@ -106,7 +106,7 @@
 						<th>Bairro</th>
 						<th colspan="2">Opções</th>
 						<th>
-							<a href='addEndereco.php?idEntidade=$id_entidade'>
+							<a href='addEndereco.php<?php echo "?idEntidade=$id_entidade&nomeEntidade=$nome_entidade'"?>>
 								<img src='imagens/Add01.png' width='20px'>
 							</a>
 						</th>

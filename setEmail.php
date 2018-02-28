@@ -11,7 +11,6 @@
 			$contatos = $conex -> prepare($sql);
 			if($contatos -> execute(array($id, $id_entidade, $email))){
 				$contatos = NULL;
-				header("location:cadastro2.php");
 			} else {
 				echo "ERRO";
 			}

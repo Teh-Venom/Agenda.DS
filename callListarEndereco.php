@@ -3,7 +3,7 @@
 
 	$sql = "SELECT idEndereco, cidade.nome as Cidade , rua, numero, complemento, bairro
 			FROM endereco
-			INNER JOIN cidade ON cidade.idCidade = endereco.idCidade_Endereco
+			LEFT JOIN cidade ON cidade.idCidade = endereco.idCidade_Endereco
 			WHERE idEntidade_Endereco = ?";
 	$contatos = $conex -> prepare($sql);
 	$contatos -> execute(array($id_entidade));

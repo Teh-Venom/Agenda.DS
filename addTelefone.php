@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -6,8 +7,8 @@
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
 			
-			@$id_entidade = $_POST["id_entidade"];
-			@$nome_entidade = $_POST["nome_entidade"];
+			$id_entidade = $_GET["idEntidade"];
+			$nome_entidade = $_GET["nomeEntidade"];
 		?>
 	</head>
 	<body>
@@ -64,7 +65,7 @@
 					<?php
 						include "setTelefone.php";
 						if (isset($_POST["salvar"]))
-						header("location:cadastro2.php");
+						header("location:listarExpandir.php?idExpansao=$id_entidade&nomeExpansao=$nome_entidade");
 					?>
 				</fieldset>
 			

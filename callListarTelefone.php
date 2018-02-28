@@ -3,7 +3,7 @@
 
 	$sql = "SELECT idTelefone, ddd, numero, listatipotelefone.nome as operadora 
 				FROM telefone
-				INNER JOIN listatipotelefone ON listatipotelefone.idListaTipoTelefone = telefone.idListaTipoTelefone_Telefone
+				LEFT JOIN listatipotelefone ON listatipotelefone.idListaTipoTelefone = telefone.idListaTipoTelefone_Telefone
 			WHERE idEntidade_Telefone = ?";
 	$contatos = $conex -> prepare($sql);
 	$contatos -> execute(array($id_entidade));

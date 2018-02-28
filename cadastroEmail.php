@@ -42,6 +42,10 @@
 					
 					<?php
 						include "setEmail.php";
+						
+						include "setEmail.php";
+						if (isset($_POST["salvar"]))
+						header("location:cadastro2.php");
 					?>
 				</fieldset>
 			

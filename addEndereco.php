@@ -6,8 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
 			
-			@$id_entidade = $_POST["id_entidade"];
-			@$nome_entidade = $_POST["nome_entidade"];
+			@$id_entidade = $_GET["idEntidade"];
+			@$nome_entidade = $_GET["nomeEntidade"];
 		?>
 	</head>
 	<body>
@@ -31,28 +31,28 @@
 					
 					<p>
 						Nome da Rua: *<br>
-						<input type="text" name="rua" value="<?php if(isset($_POST['enviarEstado'])){echo $_POST['rua'] }   ?>"maxlength="200" autofocus required>
+						<input type="text" name="rua" value="<?php if(isset($_POST['enviarEstado'])){echo $_POST['rua']; }   ?>" maxlength="200" autofocus required>
 					</p>
 					
 					<hr>
 					
 					<p>
 						Numero: *<br>
-						<input type="number_format" name="numero" maxlength="11">
+						<input type="number_format" name="numero"  value="<?php if(isset($_POST['enviarEstado'])){echo $_POST['numero'];}?>" maxlength="11">
 					</p>
 					
 					<hr>
 					
 					<p>
 						Complemento:<br>
-						<input type="text" name="complemento" maxlength="15">
+						<input type="text" name="complemento"  value="<?php if(isset($_POST['complemento'])){echo $_POST['numero'];}?>" maxlength="15">
 					</p>
 					
 					<hr>
 					
 					<p>
 						Bairro:<br>
-						<input type="text" name="bairro" maxlength="15">
+						<input type="text" name="bairro"  value="<?php if(isset($_POST['enviarEstado'])){echo $_POST['bairro'];}?>"  maxlength="15">
 					</p>
 					
 					<hr>
@@ -86,7 +86,7 @@
 					<?php
 						include "setEndereco.php";
 						if (isset($_POST["salvar"]))
-						header("location:cadastro2.php");
+						header("location:listarExpandir.php?idExpansao=$id_entidade&nomeExpansao=$nome_entidade");
 					?>
 				</fieldset>
 			
