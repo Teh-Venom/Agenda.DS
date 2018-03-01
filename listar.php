@@ -19,7 +19,6 @@
 				</a>
 			</center>		
 		</nav>
-			<div class="listagrupo">
 				<form action="" method="POST">
 					
 						<center>
@@ -33,7 +32,6 @@
 							<th>Sexo</th>	
 							<th>Data de Nascimento</th>
 							<th>Numero de Telefone</th>
-							<th>Endereco</th>
 							<th>E-mail</th>
 							<th>Observação</th>
 							<th colspan="2">Opções</th>
@@ -43,11 +41,10 @@
 								$sql = "SELECT entidade.idEntidade, entidade.primeiroNome, 
 											listagrupo.nome, entidade.sexo, 
 											entidade.dataNascimento, telefone.numero, 
-											endereco.rua, email.endereco, entidade.Obs 
+											email.endereco, entidade.Obs 
 										FROM entidade 
 										LEFT JOIN listagrupo ON listagrupo.idListaGrupo = entidade.IdListaGrupo_Entidade 
 										LEFT JOIN telefone ON telefone.idEntidade_Telefone = entidade.idEntidade 
-										LEFT JOIN endereco ON endereco.idEntidade_Endereco = entidade.idEntidade 
 										LEFT JOIN email ON email.idEntidade_Email = entidade.idEntidade
 										GROUP BY entidade.idEntidade";
 								$contatos = $conex -> prepare($sql);
@@ -60,7 +57,6 @@
 										$sexo = $bolacha['sexo'];
 										$nascimento = $bolacha['dataNascimento'];
 										$celular = $bolacha['numero'];
-										$endereco = $bolacha['rua'];
 										$email = $bolacha['endereco'];
 										$obs = $bolacha['Obs'];
 																	
@@ -84,8 +80,6 @@
 										echo "<th align='center'>".$nascimento."</th>";
 										
 										echo "<th>".$celular."</th>";
-										
-										echo "<th>".$endereco."</th>";
 										echo "<th>".$email."</th>";
 										echo "<th>".$obs."</th>";
 										
@@ -108,6 +102,5 @@
 						</table>
 						</center>
 				</form>
-			</div>
 	</body>
 </html>
