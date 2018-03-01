@@ -22,8 +22,7 @@
 			<div class="listagrupo">
 				<form action="" method="POST">
 					
-					
-					<fieldset>
+						<center>
 						<legend>
 							Dados do Cadastro:
 						</legend>
@@ -107,7 +106,7 @@
 							?>
 						
 						</table>
-					</fieldset>
+						</center>
 				</form>
 			</div>
 	</body>
