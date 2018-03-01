@@ -96,7 +96,7 @@
 												</a>
 											  </th>";
 										echo "<th>
-												<a href='excluir.php?idExclusao=$id&nomeExclusao=$nome'>
+												<a href='excluirEntidade.php?idEntidade=$id&nomeEntidade=$nome'>
 													<img src='imagens/Lixo01.png' width='20px'>
 												</a>
 											  </th>";

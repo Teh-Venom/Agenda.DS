@@ -8,7 +8,12 @@
 	{
 			$idListaGrupo = $bolacha['idListaGrupo'];
 			$nomeGrupo = $bolacha['nome'];
-			echo "<option value='$idListaGrupo'>$nomeGrupo</option>";
+			if ($id_grupo_edicao == $idListaGrupo){
+				echo "<option selected value='$idListaGrupo'>$nomeGrupo</option>";
+			} else {
+				echo "<option value='$idListaGrupo'>$nomeGrupo</option>";
+			}
 	}
 	$contatos = NULL;
+	
 ?>

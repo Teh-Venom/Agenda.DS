@@ -27,6 +27,12 @@
 					$numero = $_POST["numero"];
 					$ddd = $_POST["ddd"];
 					$idTipo = $_POST["tipoTelefone"];
+					
+					if ($idTipo == ""){
+						$idTipo = NULL;
+					}
+					
+					
 					include "conexao.php";
 					$sql = "UPDATE telefone SET 
 							idListaTipoTelefone_Telefone = ?,

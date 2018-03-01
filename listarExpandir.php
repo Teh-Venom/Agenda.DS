@@ -12,23 +12,20 @@
 	<body>
 		<header>
 			<hr>
-			<h2><center>Projeto Agenda - Listar - Gabriel Braz</center></h2>
-			<hr>
-		</header>
-		
-		<nav>
+			<h2><center>Projeto Agenda - Listar - Gabriel Braz<br></center></h2>
 			<center>
 				<a href="index.html">
 					<input type="button" value="Voltar ao Menu" name="index" align="center">
 				</a>
-			</center>		
-		</nav>
-			
-				<fieldset>
-					<legend>
-						Dados de '<?php echo $nome_entidade; ?>':
-					</legend>
+			</center>
+			<hr>
+		</header>
+		
+		<nav>
 					
+		</nav>
+					<h4><center>Dados de '<?php echo $nome_entidade; ?>'</center></h4>
+			
 					<table border="1" style ="margin : 0 auto">
 						<th>Primeiro Nome</th>
 						<th>Sobre Nome</th>
@@ -46,9 +43,7 @@
 						?>
 					
 					</table>
-				</fieldset>
 			
-				<fieldset>
 					<legend>
 						Telefones de '<?php echo $nome_entidade; ?>':
 					</legend>
@@ -70,9 +65,7 @@
 						?>
 					
 					</table>
-				</fieldset>
-			
-				<fieldset>
+					
 					<legend>
 						E-mails de '<?php echo $nome_entidade; ?>':
 					</legend>
@@ -90,9 +83,7 @@
 							include "callListarEmail.php";
 						?>
 					</table>
-				</fieldset>
-			
-				<fieldset>
+					
 					<legend>
 						Endereços de '<?php echo $nome_entidade; ?>':
 					</legend>
@@ -116,7 +107,6 @@
 						?>
 					
 					</table>
-				</fieldset>
 				
 			</div>
 	</body>

@@ -29,3 +29,7 @@ fieldset{
 	width: 75%;
 	margin: 0 auto;
 }
+legend{
+	margin-bottom: 7px;
+	margin-top: 23px;
+}

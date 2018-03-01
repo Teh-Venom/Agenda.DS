@@ -50,7 +50,7 @@
 					</a>
 				  </th>";
 			echo "<th>
-					<a href='excluir.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade'>
+					<a href='excluirEntidade.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade'>
 						<img src='imagens/Lixo01.png' width='20px'>
 					</a>
 				  </th>";
