@@ -8,7 +8,12 @@
 	{
 			$idTipoTelefone = $bolacha['idListaTipoTelefone'];
 			$nomeTipoTelefone = $bolacha['nome'];
-			echo "<option value='$idTipoTelefone'>$nomeTipoTelefone</option>";
+			if ($id_tipo_edicao == $idTipoTelefone){
+				echo "<option selected='selected' value='$idTipoTelefone'>$nomeTipoTelefone</option>";
+			} 
+			else {
+				echo "<option value='$idTipoTelefone'>$nomeTipoTelefone</option>";
+			}
 	}
 	$contatos = NULL;
 ?>

@@ -27,8 +27,8 @@
 			echo "<th>".$bairro_endereco."</th>";
 			
 			echo "<th>
-					<a href='listarExpandir.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade&idEndereco=$id_endereco'>
-						<img src='imagens/Expandir01.png' width='20px'>
+					<a href='editarEndereco.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade&idEndereco=$id_endereco'>
+						<img src='imagens/Editar01.png' width='20px'>
 					</a>
 				  </th>";
 			echo "<th>

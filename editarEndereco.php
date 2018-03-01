@@ -5,9 +5,44 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
 		<?php
+			include "conexao.php";
+			$id_entidade 		= $_GET['idEntidade'];
+			$nome_entidade 		= $_GET['nomeEntidade'];
+			$id_endereco_edicao = $_GET['idEndereco'];
 			
-			$id_entidade = $_GET["idEntidade"];
-			$nome_entidade = $_GET["nomeEntidade"];
+			$sql = "SELECT * FROM endereco WHERE idEndereco = $id_endereco_edicao";
+			$contatos = $conex -> prepare($sql);
+			$contatos -> execute();
+
+
+			foreach($contatos as $bolacha)
+			{
+				$rua_edicao 		= $bolacha['rua'];
+				$numero_edicao 		= $bolacha['numero'];
+				$complemento_edicao = $bolacha['complemento'];
+				$bairro_edicao		= $bolacha['bairro'];
+			}
+			
+			if(isset($_POST["salvar"]))
+				{
+					$rua 		 = $_POST["rua"];
+					$numero 	 = $_POST["numero"];
+					$complemento = $_POST["complemento"];
+					$bairro 	 = $_POST["bairro"];
+					
+					
+					include "conexao.php";
+					$sql = "UPDATE endereco SET 
+								rua = ?,
+								numero = ?,
+								complemento = ?,
+								bairro = ?
+							WHERE idEndereco = ?";
+					$contatos = $conex -> prepare($sql);
+					$contatos -> execute(array($rua, $numero, $complemento, $bairro, $id_endereco_edicao));
+					$contatos = NULL;
+					header("location:listarExpandir.php?idExpansao=$id_entidade&nomeExpansao=$nome_entidade");
+				}
 		?>
 	</head>
 	<body>
@@ -58,36 +93,8 @@
 					<hr>
 					
 					<p>
-						Estado:<br>
-						<select name="estado">
-							<option value="0"></option>
-							<?php
-
-								include "callEstados.php";
-							?>							
-						</select>
-						
-					</p>
-					
-					<hr>
-					
-					<p>
-						<?php
-							include "callCidades.php";
-						?>
-					</p>
-					
-					<hr>
-					
-					<p>
 						<input type="submit" value="salvar" name="salvar">
 					</p>
-					
-					<?php
-						include "setEndereco.php";
-						if (isset($_POST["salvar"]))
-							header("location:listarExpandir.php?idExpansao=$id_entidade&nomeExpansao=$nome_entidade");
-					?>
 				</fieldset>
 			
 			<form>

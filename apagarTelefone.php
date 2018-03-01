@@ -16,7 +16,7 @@
 				$contatos = $conex -> prepare($sql);
 				$contatos -> execute();
 				$contatos= NULL;
-				header("Location: listarExpandir.php?idExpansao=$id_entidade_exclusao&nomeExpansao=$nome_entidade_exclusao'");
+				header("Location: listarExpandir.php?idExpansao=$id_entidade_exclusao&nomeExpansao=$nome_entidade_exclusao");
 			}
 		?>
 	</head>
@@ -27,7 +27,7 @@
 			<hr>
 		</header>
 		<div>
-			<h2 align="center">Deseja apagar o Endereco escolhido?</h2>
+			<h2 align="center">Deseja apagar o telefone escolhido?</h2>
 				<span align="center">
 					<form action="" method="POST">
 						<input type="submit" name="sim" value="Sim">

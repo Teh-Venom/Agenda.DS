@@ -16,8 +16,8 @@
 			echo "<th>".$endereco_email."</th>";
 			
 			echo "<th>
-					<a href='listarExpandir.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade&idEmail=$id_email'>
-						<img src='imagens/Expandir01.png' width='20px'>
+					<a href='editarEmail.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade&idEmail=$id_email'>
+						<img src='imagens/Editar01.png' width='20px'>
 					</a>
 				  </th>";
 			echo "<th>

@@ -25,8 +25,8 @@
 			echo "<th align='center'>".$operadora_telefone."</th>";
 			
 			echo "<th>
-					<a href='listarExpandir.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade&idTelefone=$id_telefone'>
-						<img src='imagens/Expandir01.png' width='20px'>
+					<a href='editarTelefone.php?idEntidade=$id_entidade&nomeEntidade=$nome_entidade&idTelefone=$id_telefone'>
+						<img src='imagens/Editar01.png' width='20px'>
 					</a>
 				  </th>";
 			echo "<th>
